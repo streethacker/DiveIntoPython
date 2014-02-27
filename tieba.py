@@ -116,8 +116,6 @@ class IMGPredator:
 	
 	def close(self):
 		self.refresh()
-		del self.innerTarget
-		del self.imgTarget
 
 	def _loadIMGTarget(self):
 		print "Start parsing image links..."
@@ -181,6 +179,7 @@ def main():
 	InnerParser.close()
 	IMGDownloader = IMGPredator(InnerParser.inner)
 	IMGDownloader.fetchback()
+	IMGDownloader.close()
 
 
 if __name__ == "__main__":
